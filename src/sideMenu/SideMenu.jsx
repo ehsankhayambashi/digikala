@@ -34,7 +34,11 @@ function SideMenu({ drawerOpen, setDrawerOpen, categories }) {
       </Box>
       <Box sx={{ width: 300 }}>
         {categories.map((category, index) => (
-          <FirstLevel category={category} key={index} />
+          <FirstLevel
+            category={category}
+            key={index}
+            setDrawerOpen={setDrawerOpen}
+          />
         ))}
       </Box>
     </SwipeableDrawer>

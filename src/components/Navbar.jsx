@@ -187,6 +187,7 @@ function Navbar() {
                   if (category.parentId === null) {
                     return (
                       <Link
+                        key={index}
                         to={`/search/${category.slug}`}
                         component={RouterLink}
                         color="inherit"

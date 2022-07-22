@@ -20,7 +20,7 @@ function SubCatCart({ subCat }) {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          maxWidth: "90px",
+          // maxWidth: "90px",
           margin: "7px",
           marginRight: "0",
         }}

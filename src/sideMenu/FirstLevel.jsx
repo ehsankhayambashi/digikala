@@ -9,8 +9,9 @@ import {
 import React, { useState } from "react";
 import { MdChevronLeft, MdExpandLess, MdExpandMore } from "react-icons/md";
 import SecondLevel from "./SecondLevel";
+import { Link as RouterLink } from "react-router-dom";
 
-function FirstLevel({ category }) {
+function FirstLevel({ category, setDrawerOpen }) {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
@@ -50,9 +51,12 @@ function FirstLevel({ category }) {
                 alignItems: "center",
                 paddingRight: "3rem",
                 backgroundColor: "#f0f0f1",
+                textDecoration: "none",
               }}
-              component="div"
+              component={RouterLink}
+              to={`/search/${category.slug}`}
               id="nested-list-subheader"
+              onClick={() => setDrawerOpen(false)}
             >
               همه موارد این دسته
               <MdChevronLeft />
@@ -60,7 +64,11 @@ function FirstLevel({ category }) {
           }
         >
           {category.children.map((child, index) => (
-            <SecondLevel category={child} key={index} />
+            <SecondLevel
+              category={child}
+              key={index}
+              setDrawerOpen={setDrawerOpen}
+            />
           ))}
         </List>
       </Collapse>

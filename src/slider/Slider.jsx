@@ -3,9 +3,6 @@ import "./Slider.css";
 import BtnSlider from "./BtnSlider";
 import { dataSlider } from "../data/dummy";
 import { Box } from "@mui/system";
-// import { useSwipeable } from "react-swipeable";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
 
 function Slider() {
   // swipe detection

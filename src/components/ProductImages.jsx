@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, MobileStepper } from "@mui/material";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 
 function ProductImages({ mainImage, images: otherImages }) {
@@ -34,12 +34,15 @@ function ProductImages({ mainImage, images: otherImages }) {
 
   const handleImgSelect = (index) => {
     setImgSelectedId(index);
+    if (index > 0 && index < images.length - 1) {
+      setButtonState({ aghab: true, jolo: true });
+    }
   };
 
   const handleJolo = () => {
     let imgId = imgSelectedId;
-    const titleElement = document.getElementById(imgId);
-    titleElement.scrollIntoView({ behavior: "smooth" });
+    // const titleElement = document.getElementById(imgId);
+    // titleElement.scrollIntoView({ behavior: "smooth" });
     if (imgId > 0) {
       imgId = imgId - 1;
       setImgSelectedId(imgId);
@@ -63,8 +66,8 @@ function ProductImages({ mainImage, images: otherImages }) {
   };
   const handleAghab = () => {
     let imgId = imgSelectedId;
-    const titleElement = document.getElementById(imgId);
-    titleElement.scrollIntoView({ behavior: "smooth" });
+    // const titleElement = document.getElementById(imgId);
+    // titleElement.scrollIntoView({ behavior: "smooth" });
     if (imgId < images.length - 1) {
       imgId = imgId + 1;
       setImgSelectedId(imgId);
@@ -86,21 +89,46 @@ function ProductImages({ mainImage, images: otherImages }) {
       };
     });
   };
+
+  const nextButton = () => {
+    return (
+      <IconButton
+        sx={{
+          height: "fit-content",
+          display: { xs: "none", sm: "flex" },
+        }}
+        aria-label="next"
+        disabled={buttonState.jolo ? false : true}
+        onClick={handleJolo}
+      >
+        <MdArrowForwardIos />
+      </IconButton>
+    );
+  };
+
+  const backButton = () => {
+    return (
+      <IconButton
+        sx={{
+          height: "fit-content",
+          display: { xs: "none", sm: "flex" },
+        }}
+        disabled={buttonState.aghab ? false : true}
+        aria-label="next"
+        onClick={handleAghab}
+      >
+        <MdArrowBackIos />
+      </IconButton>
+    );
+  };
+
   return (
     <Box display="flex" flexDirection="column">
       <Box display="flex" justifyContent="space-around" alignItems="center">
-        <IconButton
-          sx={{
-            height: "fit-content",
-          }}
-          aria-label="next"
-          disabled={buttonState.jolo ? false : true}
-          onClick={handleJolo}
-        >
-          <MdArrowForwardIos />
-        </IconButton>
-        <img
-          width="80%"
+        {nextButton()}
+        <Box
+          sx={{ width: { xs: "100%", sm: "80%" } }}
+          component="img"
           draggable={false}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
@@ -108,26 +136,16 @@ function ProductImages({ mainImage, images: otherImages }) {
           src={images[imgSelectedId]}
           alt="akse asli"
         />
-        <IconButton
-          sx={{
-            height: "fit-content",
-          }}
-          disabled={buttonState.aghab ? false : true}
-          aria-label="next"
-          onClick={handleAghab}
-        >
-          <MdArrowBackIos />
-        </IconButton>
+        {backButton()}
       </Box>
       <Box
         sx={{
           width: "100%",
           overflowX: "auto",
           overflowY: "hidden",
-          display: "flex",
+          display: { xs: "none", md: "flex" },
           whiteSpace: "nowrap",
         }}
-        display="flex"
       >
         {images.map((image, index) => (
           <Box
@@ -146,6 +164,20 @@ function ProductImages({ mainImage, images: otherImages }) {
             <img width="100%" src={image} alt="" />
           </Box>
         ))}
+      </Box>
+      <Box display="flex" justifyContent="center">
+        <MobileStepper
+          variant="dots"
+          steps={images.length}
+          position="static"
+          activeStep={imgSelectedId}
+          sx={{
+            maxWidth: 400,
+            flexGrow: 1,
+            display: { xs: "flex", md: "none" },
+            justifyContent: "center",
+          }}
+        />
       </Box>
     </Box>
   );

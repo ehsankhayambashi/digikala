@@ -106,7 +106,6 @@ function ProductCard({ product }) {
                   px={1}
                   visibility={product.discount ? "visible" : "hidden"}
                 >
-                  {/* moshkel */}
                   <Typography
                     sx={{ fontSize: "13px" }}
                     color="white"

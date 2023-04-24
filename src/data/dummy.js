@@ -198,7 +198,6 @@ export const allProducts = [
       "https://dkstatics-public.digikala.com/digikala-products/78148768072784b73431693d936ae1d5eb439606_1653804655.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90",
       "https://dkstatics-public.digikala.com/digikala-products/081fcfb278d1dd56bdf49cde4bc60e80d7fd1d70_1653804657.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90",
       "https://dkstatics-public.digikala.com/digikala-products/195bd99289c288cbb927fe9b9d659275eefeae71_1631704698.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90",
-      "https://cdn.wallpapersafari.com/29/55/EFmg6T.jpg",
     ],
     title:
       "گوشی موبایل اپل مدل iPhone 13 Pro Max A2644 دو سیم‌ کارت ظرفیت 256 گیگابایت و رم 6 گیگابایت",
@@ -208,6 +207,23 @@ export const allProducts = [
     discountedPrice: "۴۵,۰۰۰,۰۰۰",
     discount: 3,
     category: 6,
+    features: [
+      { name: "فناوری صفحه‌نمایش", value: "Super Retina XDR OLED" },
+      { name: "شبکه های ارتباطی", value: "2G، 3G، 4G، 5G" },
+      { name: "حافظه داخلی", value: "256 گیگابایت" },
+      { name: "نسخه سیستم عامل", value: "iOS 15" },
+    ],
+    dynamic: true,
+    dynamicType: "رنگ",
+    dynamicAttributes: [
+      { name: "زرد", value: "#ffbe0b" },
+      { name: "نارنجی", value: "#fb5607" },
+      { name: "صورتی", value: "#ff006e" },
+      { name: "بنفش", value: "#8338ec" },
+      { name: "آبی", value: "#00b4d8" },
+    ],
+    comments:
+      "بالاخره بعد از شایعات، شاهد رونمایی جدید‌ترین گوشی‌های هوشمند اپل در قالب خانواده آیفون 13 بودیم. آیفون 13 پرو مکس، آیفون 13 پرو، آیفون 13 و آیفون 13 مینی به‌عنوان جدید‌ترین گوشی‌های هوشمند این شرکت معرفی شدند. آیفون 13 پرو مکس بدون شک به مشخصات فنی قدرتمند‌تری به نسبت ما‌بقی اعضای این خانواده مجهز شده است. از نظر طراحی تفاوت چندانی با نسل قبلی پرچمداران این شرکت شاهد نبودیم. تنها در نمای رو به رویی این بار اپل از ناچ با عرض کمتری به نسبت نسل قبلی بهره برده است.",
   },
   {
     id: 2,

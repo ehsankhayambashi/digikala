@@ -10,6 +10,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         {/* <Navbar /> */}
+
         <Routes>
           <Route path="/search/:categorySlug" element={<Search />} />
           <Route path="/product/:productId" element={<ProductPage />} />

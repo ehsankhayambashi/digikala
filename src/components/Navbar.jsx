@@ -100,6 +100,7 @@ function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [event, setEvent] = useState(null);
   const categories = createCategoryList(navLinks);
+  console.log("categories:", categories);
 
   const handleClick = (event, children) => {
     setAnchorEl(event.currentTarget);
